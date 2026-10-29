@@ -398,6 +398,21 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-accent);
 }
 
+.btn-whatsapp {
+  background: #25D366;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  font-weight: 600;
+}
+
+.btn-whatsapp:hover {
+  background: #20ba5a;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+}
+
 .btn-sm {
   padding: 0.45rem 0.9rem;
   font-size: 0.82rem;

@@ -427,10 +427,10 @@
             </div>
 
             <div class="contact-info-item">
-              <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-icon-box" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i></div>
               <div>
-                <span class="contact-label">Teléfono / WhatsApp</span>
-                <a href="tel:+593995845238" class="contact-value">+593 995845238</a>
+                <span class="contact-label">WhatsApp Directo</span>
+                <a href="https://wa.me/593995845238" target="_blank" class="contact-value">+593 995845238</a>
                 <button class="copy-btn" data-copy="+593995845238" title="Copiar teléfono"><i class="fa-regular fa-copy"></i></button>
               </div>
             </div>
@@ -468,9 +468,18 @@
               <div class="form-group">
                 <textarea id="senderMsg" rows="4" placeholder="Detalles de la oportunidad o invitación a entrevista..." required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary" style="width: 100%;">
-                <i class="fa-solid fa-envelope-open-text"></i> Enviar Invitación Directa
-              </button>
+              
+              <div class="form-actions-grid" style="display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.25rem;">
+                <button type="button" id="btnSendWhatsapp" class="btn btn-whatsapp" style="width: 100%;" onclick="sendViaWhatsApp()">
+                  <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i> Enviar a mi WhatsApp (+593 995845238)
+                </button>
+                <button type="button" id="btnSendEmail" class="btn btn-secondary" style="width: 100%;" onclick="sendViaEmail()">
+                  <i class="fa-solid fa-envelope"></i> Enviar por Correo (alexandercarrion918@gmail.com)
+                </button>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.6rem; margin-bottom: 0;">
+                <i class="fa-solid fa-shield-halved" style="color: var(--cyan-glow);"></i> Envío 100% gratuito y directo al celular y correo de Paúl Rosero.
+              </p>
             </form>
           </div>
         </div>
@@ -523,6 +532,6 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2.1"></script>
 </body>
 </html>

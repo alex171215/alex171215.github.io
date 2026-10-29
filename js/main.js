@@ -815,23 +815,84 @@ function closeModal() {
   }
 }
 
-// --- DIRECT MESSAGE TO EMAIL ---
+// --- CONTACT FORM DISPATCHERS (WHATSAPP & GMAIL - 100% FREE & ZERO COST) ---
+function getContactFormData() {
+  const nameInput = document.getElementById("senderName");
+  const companyInput = document.getElementById("senderCompany");
+  const msgInput = document.getElementById("senderMsg");
+
+  const name = nameInput ? nameInput.value.trim() : "";
+  const company = companyInput ? companyInput.value.trim() : "";
+  const message = msgInput ? msgInput.value.trim() : "";
+
+  if (!name) {
+    if (nameInput) {
+      nameInput.focus();
+      nameInput.reportValidity();
+    }
+    showToast("Por favor ingresa tu nombre y cargo");
+    return null;
+  }
+  if (!company) {
+    if (companyInput) {
+      companyInput.focus();
+      companyInput.reportValidity();
+    }
+    showToast("Por favor ingresa tu empresa u organización");
+    return null;
+  }
+  if (!message) {
+    if (msgInput) {
+      msgInput.focus();
+      msgInput.reportValidity();
+    }
+    showToast("Por favor redacta tu propuesta o mensaje");
+    return null;
+  }
+
+  return { name, company, message };
+}
+
+window.sendViaWhatsApp = function() {
+  const data = getContactFormData();
+  if (!data) return;
+
+  const whatsappText = `Hola Paúl, soy *${data.name}* de *${data.company}*.\n\n` +
+    `Te contacto desde tu portafolio web con la siguiente propuesta:\n` +
+    `"${data.message}"\n\n` +
+    `¿Podemos coordinar una breve entrevista?`;
+
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=593995845238&text=${encodeURIComponent(whatsappText)}`;
+  window.open(whatsappUrl, "_blank");
+  showToast("Abriendo WhatsApp con tu mensaje listo para enviar...");
+};
+
+window.sendViaEmail = function() {
+  const data = getContactFormData();
+  if (!data) return;
+
+  const subject = `Propuesta Técnica / Pasantía: ${data.company} - ${data.name}`;
+  const body = `Hola Paúl,\n\nSoy ${data.name} de ${data.company}.\n\n` +
+    `Detalles de la propuesta / invitación a entrevista:\n${data.message}\n\n` +
+    `---\nEnviado desde el portafolio web de Paúl Rosero\nDestinatario: alexandercarrion918@gmail.com`;
+
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=alexandercarrion918@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  const win = window.open(gmailUrl, "_blank");
+  if (!win || win.closed || typeof win.closed === "undefined") {
+    window.location.href = `mailto:alexandercarrion918@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  showToast("Abriendo correo para enviar tu mensaje...");
+};
+
 function initDirectMessage() {
   const form = document.getElementById("directMessageForm");
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = document.getElementById("senderName").value;
-    const company = document.getElementById("senderCompany").value;
-    const message = document.getElementById("senderMsg").value;
-
-    const subject = encodeURIComponent(`Propuesta de Trabajo / Pasantía: ${company} - ${name}`);
-    const body = encodeURIComponent(`Hola Paúl,\n\nSoy ${name} de ${company}.\n\n${message}\n\nContacto de respuesta rápida.`);
-
-    window.open(`mailto:alexandercarrion918@gmail.com?subject=${subject}&body=${body}`, "_blank");
-    showToast("Abriendo cliente de correo institucional...");
-    form.reset();
+    window.sendViaWhatsApp();
   });
 }
 
