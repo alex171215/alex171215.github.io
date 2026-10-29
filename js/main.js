@@ -10,7 +10,7 @@ const PROJECTS_DATA = [
     title: "ERP/POS Médico en Producción & Agente IA Local",
     type: "Producción Comercial",
     badges: ["En Producción", "Arquitectura Cloud", "IA Operativa"],
-    categories: ["all", "enterprise", "beauty-tech", "backend-data", "applied-ai", "fullstack"],
+    categories: ["all", "backend-distribuido", "databases-etl", "cloud-devops", "applied-ai", "fullstack"],
     summary: "Plataforma ERP/POS integral desplegada en la nube para el Centro Médico Familiar Dra. Verónica Barahona. Controla transacciones críticas de farmacia y consultas médicas.",
     challenge: "Descuadres en inventarios físicos, caídas de red que corrompían el Kardex y consultas manuales lentas en punto de venta.",
     solution: "Arquitectura en SvelteKit con PostgreSQL (Supabase) blindada con Triggers y Row Level Security (RLS). Integración de escáner láser de códigos de barra para acelerar caja, motor de notificaciones Push (VAPID) con Service Workers para sortear bloqueos de caché móvil, y un agente Llama 3 (Groq API) con compuertas algorítmicas que mitigan al 100% las alucinaciones.",
@@ -31,7 +31,7 @@ const PROJECTS_DATA = [
     title: "ERP Distribuido de Microservicios & Persistencia Híbrida (SQL + NoSQL)",
     type: "Arquitectura Distribuida & Cloud",
     badges: ["Live en Render", "Microservicios", "Híbrido SQL + NoSQL", "SSO JWT"],
-    categories: ["all", "enterprise", "beauty-tech", "backend-data", "fullstack"],
+    categories: ["all", "backend-distribuido", "databases-etl", "cloud-devops", "fullstack"],
     summary: "Sistema ERP empresarial distribuido para 'Comercial JW Cóndor'. Compuesto por 4 microservicios desacoplados (Database-per-Service) y sincronización NoSQL en tiempo real para e-commerce.",
     challenge: "Evitar cuellos de botella de contención en un ERP monolítico, garantizando aislamiento total de esquemas entre compras, ventas, inventario y talento humano sin perder consistencia en stock y catálogo digital.",
     solution: "Diseño de 4 APIs independientes en Node.js/Express con bases de datos relacionales aisladas en Supabase (PostgreSQL por fragmentación vertical). Desarrollo y despliegue del microservicio de Inventario (LIVE en Render), con endpoints transaccionales para descontar/ingresar stock, Single Sign-On (SSO) con JWT criptográfico, y sincronización en tiempo real hacia Firebase Realtime Database para alimentar el catálogo e-commerce.",
@@ -70,7 +70,7 @@ const PROJECTS_DATA = [
     title: "Optimizador Transaccional de Bases de Datos Masivas",
     type: "Ingeniería de Datos & ETL",
     badges: ["Big Data", "SQL Server", "Alto Rendimiento"],
-    categories: ["all", "enterprise", "backend-data"],
+    categories: ["all", "databases-etl", "backend-distribuido"],
     summary: "Motor de migración y procesamiento ETL masivo en Python y T-SQL para manipular más de 1,000,000 de registros analíticos empresariales sin colapsar la infraestructura.",
     challenge: "Bloqueos exclusivos de tablas corporativas (table locks) y saturación del Transaction Log al intentar actualizar 1M+ registros en una sola transacción.",
     solution: "Diseño de un procesador por lotes (batches) de 50,000 registros con control transaccional estricto (SAVEPOINT, COMMIT, ROLLBACK). Análisis y reingeniería de Execution Plans reemplazando costosos Nested Loops por Hash Match Joins en memoria.",
@@ -91,7 +91,7 @@ const PROJECTS_DATA = [
     title: "Orquestador Autónomo RPA & IA Multimodal (Cero Costo de Tokens)",
     type: "Automatización & IA",
     badges: ["RPA", "Local LLM", "Docker"],
-    categories: ["all", "beauty-tech", "applied-ai"],
+    categories: ["all", "applied-ai", "cloud-devops"],
     summary: "Sistema automatizado de scraping avanzado y evaluación multimodal de código y audio para 49 estudiantes con transcripción local y triage anti-alucinaciones.",
     challenge: "El proceso manual de evaluación consumía decenas de horas y los costos de APIs en la nube (tokens de audio/texto) eran prohibitivos para ejecuciones repetitivas.",
     solution: "Agente RPA con Playwright capaz de eludir mecanismos complejos de inicio de sesión único (SSO). Contenedorización en Docker de Faster-Whisper local para transcripción con costo de tokens igual a cero, coordinado con Gemini 1.5 Flash bajo estrictas compuertas lógicas (triage gates).",
@@ -112,7 +112,7 @@ const PROJECTS_DATA = [
     title: "Integración Empresarial SOA + Mini-ESB + RabbitMQ + NestJS",
     type: "Arquitectura de Integración",
     badges: ["Microservicios", "Event-Driven", "RabbitMQ"],
-    categories: ["all", "enterprise", "beauty-tech", "backend-data"],
+    categories: ["all", "backend-distribuido", "databases-etl"],
     summary: "Arquitectura híbrida de integración orientada a servicios (SOA) con capa de mensajería asíncrona desacoplada mediante colas y Enterprise Service Bus (ESB).",
     challenge: "Comunicación síncrona acoplada que causaba cascadas de fallas ante picos de demanda entre servicios legados y nuevas aplicaciones.",
     solution: "Implementación de servicio SOAP/WSDL con Express, capa Mini-ESB para orquestar y publicar eventos asíncronos en RabbitMQ, consumidor distribuido y frontend MVC en NestJS con Handlebars.",
@@ -154,7 +154,7 @@ const PROJECTS_DATA = [
     title: "Sistema Predictivo de Detección de Phishing con ML",
     type: "Machine Learning & Datos",
     badges: ["Machine Learning", "Python", "Data Science"],
-    categories: ["all", "applied-ai", "backend-data"],
+    categories: ["all", "applied-ai", "databases-etl"],
     summary: "Modelo de clasificación supervisada para la detección proactiva de ataques de phishing analizando características estructurales y semánticas de URLs y tráfico.",
     challenge: "Identificar sitios maliciosos de día cero antes de que aparezcan en listas negras tradicionales.",
     solution: "Extracción automática de características heurísticas, preprocesamiento con Pandas/NumPy y entrenamiento de clasificadores predictivos optimizando la métrica F1-Score.",
@@ -175,7 +175,7 @@ const PROJECTS_DATA = [
     title: "Sistema de Gestión Bibliotecaria Big Data (Top 10 Nacional)",
     type: "Big Data & Analítica",
     badges: ["Top 10 Telefónica", "Big Data", "Reconocimiento"],
-    categories: ["all", "enterprise", "backend-data"],
+    categories: ["all", "databases-etl"],
     summary: "Arquitectura analítica para la gestión y procesamiento de grandes volúmenes de registros bibliográficos, seleccionada en el Top 10 entre cientos de participantes.",
     challenge: "Estructurar y analizar catálogos bibliográficos heterogéneos y dispersos con tiempos de respuesta óptimos para comités directivos.",
     solution: "Diseño del ciclo completo de vida del dato (ingesta, depuración, almacenamiento optimizado y analítica visual). Sustentación en vivo ante el comité ejecutivo corporativo de Telefónica Movistar y Datalat.",
@@ -253,15 +253,209 @@ const ARCHITECTURE_MODES = {
   }
 };
 
-// --- 3. RECRUITER LENS MESSAGES ---
+// --- 3. RECRUITER LENS MESSAGES (CATEGORÍAS TÉCNICAS UNIVERSALES) ---
 const LENS_DESCRIPTIONS = {
-  "all": "⚡ Mostrando todos los proyectos de ingeniería, datos, cloud e IA.",
-  "enterprise": "🏢 Vista Corporativa (Cervecería Nacional / Coca-Cola): Destacando procesamiento ETL masivo, T-SQL, control transaccional ACID, arquitecturas ERP y RabbitMQ.",
-  "beauty-tech": "💄 Vista Beauty Tech (Belcorp): Destacando Cloud AWS, microservicios desacoplados, agentes LLM locales a $0 tokens y arquitecturas escalables.",
-  "backend-data": "📊 Vista Data & Backend: Destacando SQL Server, PostgreSQL, optimización de queries, planes de ejecución y pipelines de datos.",
-  "applied-ai": "🤖 Vista IA Aplicada & RPA: Destacando Llama 3, Whisper local, Playwright RPA, Docker y mitigación de alucinaciones.",
-  "fullstack": "📱 Vista Full Stack & Mobile: Destacando SvelteKit, Next.js, Android Kotlin con Jetpack Compose y Supabase."
+  "all": "⚡ Mostrando todos los proyectos de ingeniería de software, datos, cloud e IA.",
+  "backend-distribuido": "🌐 Sistemas Distribuidos & Backend: Arquitecturas de microservicios desacoplados, contratos REST, mensajería asíncrona (RabbitMQ) y fragmentación de datos.",
+  "databases-etl": "📊 Bases de Datos & ETL: SQL Server, PostgreSQL, optimización de queries con Execution Plans, procesamiento por lotes (Batches) e integridad ACID.",
+  "cloud-devops": "☁️ Cloud AWS & Docker: Arquitecturas en AWS, contenedores Docker, despliegue en Render, Supabase y persistencia en la nube.",
+  "applied-ai": "🤖 IA Aplicada & Automatización: Agentes LLM locales (Llama 3, Gemini), transcripción Whisper ($0 tokens) y web scraping avanzado (RPA con Playwright).",
+  "fullstack": "📱 Full Stack & Móvil Nativo: Aplicaciones web modernas con SvelteKit/Next.js y desarrollo móvil nativo en Android (Kotlin con Jetpack Compose)."
 };
+
+// --- 4. VERIFIED CERTIFICATES DATABASE (19 CREDENTIALS WITH DIRECT DRIVE LINKS) ---
+const CERTIFICATES_DATA = [
+  {
+    id: "aws-cloud-practitioner",
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "Amazon Web Services (AWS)",
+    category: "cloud",
+    icon: "fa-brands fa-aws",
+    color: "#f59e0b",
+    driveUrl: "https://drive.google.com/file/d/1-yrlYLt3Ftr1DaWQN63akZcrEpgMeUYz/view?usp=drive_web",
+    desc: "Fundamentos de arquitectura en la nube de AWS, cómputo (EC2), almacenamiento (S3), seguridad IAM y modelos de costos."
+  },
+  {
+    id: "aws-sagemaker-ai",
+    title: "Amazon SageMaker AI: Getting Started with ML",
+    issuer: "Amazon Web Services (AWS)",
+    category: "cloud",
+    icon: "fa-solid fa-brain",
+    color: "#f59e0b",
+    driveUrl: "https://drive.google.com/file/d/1QHZJ_gUvSmcDdPQ7z_CmBG4vEvvG0eUL/view?usp=drive_web",
+    desc: "Construcción, entrenamiento y despliegue de modelos de Machine Learning predictivos en la nube con SageMaker."
+  },
+  {
+    id: "aws-fundamentals-ml",
+    title: "Fundamentals of Machine Learning and AI",
+    issuer: "Amazon Web Services (AWS)",
+    category: "cloud",
+    icon: "fa-solid fa-robot",
+    color: "#f59e0b",
+    driveUrl: "https://drive.google.com/file/d/1ansDbNplC6pP7YzQhdPNveAz4WvyP70h/view?usp=drive_web",
+    desc: "Principios de aprendizaje supervisado, no supervisado, redes neuronales y casos de uso de IA generativa."
+  },
+  {
+    id: "big-data-telefonica-top10",
+    title: "Big Data y Bases de Datos (200h) - Top 10 Nacional",
+    issuer: "Fundación Telefónica Movistar & Datalat",
+    category: "data",
+    icon: "fa-solid fa-database",
+    color: "#38bdf8",
+    driveUrl: "https://drive.google.com/file/d/1G0yBCWjPjiUDkWEQX43JnYPnxG_jJWlC/view?usp=drive_web",
+    desc: "Ciclo de vida del dato, arquitecturas masivas y sustentación ante el comité corporativo de Telefónica."
+  },
+  {
+    id: "big-data-telefonica-acelerada",
+    title: "Formación Acelerada en Big Data (200 Horas)",
+    issuer: "Fundación Telefónica Movistar",
+    category: "data",
+    icon: "fa-solid fa-database",
+    color: "#38bdf8",
+    driveUrl: "https://drive.google.com/file/d/12M5rnzw0kR7zrkMpICn1dpW9sp_9rSdH/view?usp=drive_web",
+    desc: "Especialización en ingesta, estructuración y procesamiento analítico de grandes volúmenes de datos."
+  },
+  {
+    id: "google-data-analytics",
+    title: "Fundamentos de Data Analytics",
+    issuer: "Google (Coursera)",
+    category: "data",
+    icon: "fa-brands fa-google",
+    color: "#4285f4",
+    driveUrl: "https://drive.google.com/file/d/1l-gCZfAboBmIy2pPqxJwkJAz2ty9gQCl/view?usp=drive_web",
+    desc: "Limpieza y preparación de datos, análisis exploratorio, modelado y visualización para toma de decisiones."
+  },
+  {
+    id: "power-bi-intermedio",
+    title: "Power BI Intermedio: Análisis y Modelado de Datos",
+    issuer: "Santander Open Academy",
+    category: "data",
+    icon: "fa-solid fa-chart-pie",
+    color: "#ec0000",
+    driveUrl: "https://drive.google.com/file/d/1MCj-NxcJzIoMQklRoapCoyTijm5ftlYZ/view?usp=drive_web",
+    desc: "Modelado relacional Star Schema, flujos ETL con Power Query y métricas analíticas avanzadas con lenguaje DAX."
+  },
+  {
+    id: "excel-intermedio-avanzado",
+    title: "Excel – De Intermedio a Avanzado",
+    issuer: "Santander Open Academy",
+    category: "data",
+    icon: "fa-solid fa-table",
+    color: "#107c41",
+    driveUrl: "https://drive.google.com/file/d/11UTyJjJPUaVS9dcDbjDvGFoy7kkat-TA/view?usp=drive_web",
+    desc: "Funciones matriciales (BUSCARX, SI.CONJUNTO), tablas dinámicas con segmentación y modelado financiero."
+  },
+  {
+    id: "python-coursera",
+    title: "Curso Intensivo de Python (Crash Course)",
+    issuer: "Google (Coursera)",
+    category: "dev",
+    icon: "fa-brands fa-python",
+    color: "#38bdf8",
+    driveUrl: "https://drive.google.com/file/d/1F17-rhEouRkHtScJj1ULWIGCLh62frhU/view?usp=drive_web",
+    desc: "Automatización de flujos con Python, estructuras de datos, programación orientada a objetos y algoritmos."
+  },
+  {
+    id: "google-it-support",
+    title: "Aspectos Básicos de la Asistencia Técnica (IT Support)",
+    issuer: "Google (Coursera)",
+    category: "dev",
+    icon: "fa-solid fa-screwdriver-wrench",
+    color: "#4285f4",
+    driveUrl: "https://drive.google.com/file/d/1sDDs8xn_Z2W1bzX6xHD7oyEKavllHUqB/view?usp=drive_web",
+    desc: "Diagnóstico de hardware, redes TCP/IP, sistemas operativos, atención a usuarios y resolución de incidencias."
+  },
+  {
+    id: "cybersecurity-codeorg",
+    title: "Computer Science: Cybersecurity & Global Impacts",
+    issuer: "Code.org / Computer Science Institute",
+    category: "dev",
+    icon: "fa-solid fa-shield-halved",
+    color: "#10b981",
+    driveUrl: "https://drive.google.com/file/d/1ov8JIj_2AQQQcTmB39fVl6z6kDPELPVk/view?usp=drive_web",
+    desc: "Criptografía, autenticación, protección de redes y análisis del impacto global de la seguridad informática."
+  },
+  {
+    id: "google-activate-digital",
+    title: "Competencias Digitales para Profesionales",
+    issuer: "Google Actívate",
+    category: "dev",
+    icon: "fa-brands fa-google",
+    color: "#ea4335",
+    driveUrl: "https://drive.google.com/file/d/1R56iUCCorfQNJuf3EqJHMYCmR6vO1r_2/view?usp=drive_web",
+    desc: "Herramientas de colaboración en la nube, productividad digital y gestión de proyectos tecnológicos."
+  },
+  {
+    id: "premio-mejor-producto-innovador",
+    title: "1.er Lugar 'Mejor Producto Innovador' (Electro Pure)",
+    issuer: "CRISFE / Univ. Hemisferios / ACTIVAOS",
+    category: "honors",
+    icon: "fa-solid fa-trophy",
+    color: "#f59e0b",
+    driveUrl: "https://drive.google.com/file/d/1YWZAGxd9py-QX8fUX0s8hi6L5DT6v7pg/view?usp=drive_web",
+    desc: "Lideré la optimización de recursos y viabilidad técnica para reducir costos operativos de fabricación."
+  },
+  {
+    id: "emprende-y-actua",
+    title: "Programa Emprende y Actúa 2022",
+    issuer: "Fundación CRISFE & Universidad Hemisferios",
+    category: "honors",
+    icon: "fa-solid fa-lightbulb",
+    color: "#fbbf24",
+    driveUrl: "https://drive.google.com/file/d/1MCj-NxcJzIoMQklRoapCoyTijm5ftlYZ/view?usp=drive_web",
+    desc: "Formación en modelos de negocio sostenibles, validación de mercado y pitch técnico ante evaluadores."
+  },
+  {
+    id: "olimpiada-quimica",
+    title: "Olimpiada Ecuatoriana de Química 2022",
+    issuer: "Sociedad Ecuatoriana de Ciencias Químicas",
+    category: "honors",
+    icon: "fa-solid fa-flask",
+    color: "#10b981",
+    driveUrl: "https://drive.google.com/file/d/1nmgN3b2UHJ5VxzVTFSSQpSHTGJwnfYJv/view?usp=drive_web",
+    desc: "Diploma de participación en competencia de alto rendimiento en ciencias exactas y experimentales."
+  },
+  {
+    id: "diploma-excelencia-spellman",
+    title: "Diploma de Bachillerato por Excelencia (Becado 3 Años)",
+    issuer: "Unidad Educativa Salesiana Cardenal Spellman",
+    category: "honors",
+    icon: "fa-solid fa-award",
+    color: "#a855f7",
+    driveUrl: "https://drive.google.com/file/d/1WW3BZ28YKNiGbpTT87sLbOnHv0d7GFoQ/view?usp=drive_web",
+    desc: "Beca completa durante todo el bachillerato otorgada por rendimiento académico sobresaliente."
+  },
+  {
+    id: "puce-matematicas-ingenieria",
+    title: "Matemáticas para Ingeniería",
+    issuer: "Pontificia Universidad Católica del Ecuador (PUCE)",
+    category: "honors",
+    icon: "fa-solid fa-calculator",
+    color: "#3b82f6",
+    driveUrl: "https://drive.google.com/file/d/1hrZOFFVeZuSVcVIPMt8qxRJny7G5NS-F/view?usp=drive_web",
+    desc: "Cálculo, álgebra lineal y modelado cuantitativo aplicado a la resolución de problemas de ingeniería."
+  },
+  {
+    id: "masterclass-habilidades-blandas",
+    title: "Masterclass de Habilidades Blandas y Liderazgo",
+    issuer: "Fundación Telefónica Movistar",
+    category: "honors",
+    icon: "fa-solid fa-users",
+    color: "#06b6d4",
+    driveUrl: "https://drive.google.com/file/d/1TyIdO3nZ7n9ezaKnx2lgZCJyz1gfaoY0/view?usp=drive_web",
+    desc: "Técnicas de comunicación asertiva, resolución de conflictos y trabajo en equipos multidisciplinarios."
+  },
+  {
+    id: "recursos-bibliograficos-puce",
+    title: "Taller de Recursos Bibliográficos Digitales",
+    issuer: "Capacitaciones Biblioteca PUCE",
+    category: "honors",
+    icon: "fa-solid fa-book-bookmark",
+    color: "#6366f1",
+    driveUrl: "https://drive.google.com/file/d/1MKI07gOQkK5Ib1Di7SEOu1ekTUjqk1Cm/view?usp=drive_web",
+    desc: "Uso avanzado de bases de datos científicas, repositorios y estándares de citación e investigación."
+  }
+];
 
 // --- DOM INITIALIZATION ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -269,6 +463,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   renderProjects("all");
   initFilterButtons();
+  renderCertificates("all");
+  initCertificateFilters();
   initArchitectureTabs();
   initCounters();
   initModal();
@@ -398,6 +594,46 @@ function initFilterButtons() {
       if (lensInfo && LENS_DESCRIPTIONS[filter]) {
         lensInfo.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${LENS_DESCRIPTIONS[filter]}`;
       }
+    });
+  });
+}
+
+// --- CERTIFICATES RENDERING (19 CREDENTIALS WITH DIRECT DRIVE LINKS) ---
+function renderCertificates(filterCategory = "all") {
+  const grid = document.getElementById("certGrid");
+  if (!grid) return;
+
+  const filtered = filterCategory === "all" 
+    ? CERTIFICATES_DATA 
+    : CERTIFICATES_DATA.filter(c => c.category === filterCategory);
+
+  grid.innerHTML = filtered.map(c => `
+    <a href="${c.driveUrl}" target="_blank" rel="noopener noreferrer" class="cert-card" title="Abrir '${c.title}' en Google Drive">
+      <div class="cert-issuer-badge" style="color: ${c.color};">
+        <i class="${c.icon}"></i>
+      </div>
+      <div class="cert-info">
+        <div class="cert-title-link">
+          <span>${c.title}</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.72rem; opacity: 0.85;"></i>
+        </div>
+        <div class="cert-issuer">${c.issuer}</div>
+        <p class="cert-description">${c.desc}</p>
+        <span class="cert-drive-badge">
+          <i class="fa-brands fa-google-drive"></i> Ver en Google Drive
+        </span>
+      </div>
+    </a>
+  `).join("");
+}
+
+function initCertificateFilters() {
+  const certBtns = document.querySelectorAll(".cert-filter-btn");
+  certBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      certBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderCertificates(btn.dataset.category);
     });
   });
 }

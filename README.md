@@ -62,13 +62,7 @@ portfolio/
 ├── css/
 │   └── style.css                # Sistema de diseño, Glassmorphism, temas claro/oscuro y responsive
 ├── js/
-│   └── main.js                  # Motor de filtros de reclutador, diagramas de arquitectura y modales
-├── assets/
-│   └── cv/                      # PDFs optimizados descargables
-│       ├── CV_Paul_Rosero_General.pdf
-│       ├── CV_Paul_Rosero_Cerveceria_Nacional.pdf
-│       ├── CV_Paul_Rosero_CocaCola.pdf
-│       └── CV_Paul_Rosero_Belcorp_BeautyTech.pdf
+│   └── main.js                  # Motor de filtros técnicos, 19 certificados en Drive, arquitecturas y modales
 └── README.md                    # Esta guía
 ```
 
@@ -76,15 +70,13 @@ portfolio/
 
 ## 🎯 Características Incluidas para Impresionar Reclutadores
 
-1. **Lente de Reclutador Dinámico**:
-   - Filtros especializados para **Cervecería Nacional / Coca-Cola** (resaltando ETL masivo de 1M+ filas, ACID y T-SQL).
-   - Filtros para **Belcorp Beauty Tech** (destacando Cloud AWS, microservicios e IA local sin costo de tokens).
-   - Filtros para **Data & Backend**, **IA Aplicada** y **Full Stack & Mobile**.
-2. **Playground de Arquitecturas**:
-   - Diagramas interactivos de flujo para el ERP Médico en Producción, el Pipeline ETL masivo y el orquestador RPA/Whisper.
-3. **Modal de Detalle Técnico (Método STAR)**:
+1. **Filtros Técnicos Universales**:
+   - Categorías por dominio de ingeniería: **Sistemas Distribuidos & Backend**, **Bases de Datos & ETL**, **Cloud AWS & Docker**, **IA Aplicada & RPA** y **Full Stack & Móvil**.
+2. **19 Certificaciones con Enlace Directo a Google Drive**:
+   - Cada certificado cuenta con un enlace directo a su documento PDF original en Google Drive, con selector por categoría (*Cloud AWS & IA*, *Big Data & Analítica*, *Desarrollo & TI*, *Académico & Premios*).
+3. **Playground de Arquitecturas**:
+   - Diagramas interactivos de flujo para el ERP Médico en Producción, el ERP Distribuido de Microservicios (SQL + NoSQL), el Pipeline ETL masivo y el orquestador RPA/Whisper.
+4. **Modal de Detalle Técnico (Método STAR)**:
    - Explicación de cada proyecto bajo la estructura: *Desafío de Ingeniería -> Solución Técnica -> Impacto y Métricas Cuantificables*.
-4. **Centro de Descarga de CVs**:
-   - Enlace directo a cada una de tus 4 versiones de CV en formato PDF.
-5. **Alineación ATS y Accesibilidad**:
-   - Semántica HTML5 nativa, modo claro/oscuro con memoria local y tiempos de carga inferiores a 0.5s.
+5. **Alineación y Accesibilidad**:
+   - Semántica HTML5 nativa, modo claro/oscuro con memoria local y tiempos de carga inferiores a 0.5s sin dependencias pesadas.
