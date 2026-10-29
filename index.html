@@ -235,6 +235,7 @@
           </div>
           <div class="arch-tabs">
             <button class="arch-tab-btn active" data-arch="erp">ERP Médico en Producción</button>
+            <button class="arch-tab-btn" data-arch="microservices">Microservicios ERP (SQL + NoSQL)</button>
             <button class="arch-tab-btn" data-arch="etl">Pipeline ETL Masivo (1M+ Filas)</button>
             <button class="arch-tab-btn" data-arch="rpa">Orquestador RPA & IA Local</button>
           </div>
@@ -641,11 +642,14 @@
         <!-- Injected via JavaScript -->
       </div>
       <div class="modal-footer">
+        <a href="#" id="modalLiveBtn" target="_blank" class="btn btn-primary btn-sm" style="display: none;">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver API / En Vivo
+        </a>
         <a href="#" id="modalGithubBtn" target="_blank" class="btn btn-secondary btn-sm">
           <i class="fa-brands fa-github"></i> Ver Código en GitHub
         </a>
-        <button class="btn btn-primary btn-sm" onclick="closeModal()">
-          Entendido
+        <button class="btn btn-secondary btn-sm" onclick="closeModal()">
+          Cerrar
         </button>
       </div>
     </div>

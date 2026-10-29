@@ -27,6 +27,45 @@ const PROJECTS_DATA = [
 [Service Worker Cache Bypass]     [Agente Llama 3 con Guardrails Anti-Alucinación]`
   },
   {
+    id: "erp-distribuido-microservicios",
+    title: "ERP Distribuido de Microservicios & Persistencia Híbrida (SQL + NoSQL)",
+    type: "Arquitectura Distribuida & Cloud",
+    badges: ["Live en Render", "Microservicios", "Híbrido SQL + NoSQL", "SSO JWT"],
+    categories: ["all", "enterprise", "beauty-tech", "backend-data", "fullstack"],
+    summary: "Sistema ERP empresarial distribuido para 'Comercial JW Cóndor'. Compuesto por 4 microservicios desacoplados (Database-per-Service) y sincronización NoSQL en tiempo real para e-commerce.",
+    challenge: "Evitar cuellos de botella de contención en un ERP monolítico, garantizando aislamiento total de esquemas entre compras, ventas, inventario y talento humano sin perder consistencia en stock y catálogo digital.",
+    solution: "Diseño de 4 APIs independientes en Node.js/Express con bases de datos relacionales aisladas en Supabase (PostgreSQL por fragmentación vertical). Desarrollo y despliegue del microservicio de Inventario (LIVE en Render), con endpoints transaccionales para descontar/ingresar stock, Single Sign-On (SSO) con JWT criptográfico, y sincronización en tiempo real hacia Firebase Realtime Database para alimentar el catálogo e-commerce.",
+    metrics: "4 Microservicios Desacoplados • 7,000+ Registros Seeded • Despliegue LIVE en Render • Sincronización NoSQL en Tiempo Real",
+    techStack: ["Node.js", "Express.js", "Supabase (PostgreSQL)", "Firebase Realtime DB", "Render", "React 18", "JWT SSO", "Fragmentación Vertical"],
+    githubUrl: "https://github.com/alex171215/proyectoBD",
+    liveUrl: "https://api-inventario-1r1w.onrender.com",
+    architectureFlow: `[Cliente Web: React 18 / Vercel] ──► [HTTP + Header Authorization: Bearer <JWT>]
+                 │
+                 ▼
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │                      BACKEND DISTRIBUIDO (Render)                      │
+ │                                                                        │
+ │  ┌───────────────────────┐        ┌────────────────────────────────┐  │
+ │  │ api-talento-humano    │        │ api-ventas                     │  │
+ │  │ (SSO Centralizado JWT)│        │ (Facturación, Pedidos)         │  │
+ │  └───────────┬───────────┘        └───────────────┬────────────────┘  │
+ │              │ Clave JWT Compartida               │ POST /descontar   │
+ │              ▼                                    ▼                   │
+ │  ┌───────────────────────┐        ┌────────────────────────────────┐  │
+ │  │ api-compras           │        │ api-inventario (LIVE EN RENDER)│  │
+ │  │ (POST /ingresar)      │───────►│ https://api-inventario-1r1w... │  │
+ │  └───────────────────────┘        └───────────────┬────────────────┘  │
+ └───────────────────────────────────────────────────┼────────────────────┘
+                                                     │
+               ┌─────────────────────────────────────┴─────────────────────────────────────┐
+               ▼                                                                           ▼
+┌──────────────────────────────────────────────┐              ┌──────────────────────────────────────────────┐
+│  SUPABASE POSTGRESQL (Fragmentación Vertical)│              │  FIREBASE REALTIME DATABASE (Catálogo NoSQL) │
+│  4 Bases de Datos Aisladas (Database-per-Svc)│              │  Endpoint: GET /sincronizar-cloud            │
+│  Inventario Seeded: 7,000+ Registros         │              │  Nodo: /catalogo_ecommerce.json              │
+└──────────────────────────────────────────────┘              └──────────────────────────────────────────────┘`
+  },
+  {
     id: "optimizador-etl-masivo",
     title: "Optimizador Transaccional de Bases de Datos Masivas",
     type: "Ingeniería de Datos & ETL",
@@ -168,6 +207,20 @@ const ARCHITECTURE_MODES = {
       { title: "Cero Errores 500", desc: "Persistencia offline ante caídas momentáneas de red de la clínica." },
       { title: "100% de Auditoría", desc: "Historial completo de auditoría y movimientos de inventario." },
       { title: "Respuesta < 200ms", desc: "Lectura inmediata de stock y precios desde periférico a pantalla." }
+    ]
+  },
+  microservices: {
+    title: "Arquitectura Distribuida (4 Microservicios + Persistencia Híbrida NoSQL)",
+    nodes: [
+      { icon: "fa-key", title: "1. SSO Centralizado (JWT)", role: "Auth Gatekeeper", desc: "api-talento-humano firma tokens criptográficos; las demás APIs verifican sin compartir base de datos." },
+      { icon: "fa-cubes", title: "2. Database-per-Service", role: "Fragmentación Vertical", desc: "4 bases de datos Supabase PostgreSQL aisladas para Compras, Ventas, Inventario y Talento Humano." },
+      { icon: "fa-server", title: "3. api-inventario (Live Render)", role: "Microservicio Central", desc: "Endpoints REST para descontar e ingresar stock consumidos por Ventas y Compras en tiempo real." },
+      { icon: "fa-cloud-arrow-up", title: "4. Firebase Cloud Sync", role: "NoSQL Realtime E-commerce", desc: "Sincronización automática de catálogo y variantes a Firebase Realtime DB (/catalogo_ecommerce.json)." }
+    ],
+    metrics: [
+      { title: "Aislamiento Total", desc: "Ningún microservicio comparte conexiones ni esquemas relacionales." },
+      { title: "Despliegue Live", desc: "api-inventario operativo en Render y consumido vía HTTPS." },
+      { title: "Lecturas Rápidas NoSQL", desc: "El e-commerce consulta Firebase sin saturar PostgreSQL." }
     ]
   },
   etl: {
@@ -317,7 +370,8 @@ function renderProjects(category) {
       </div>
       <div class="project-footer">
         <div class="project-links">
-          ${p.githubUrl !== '#' ? `<a href="${p.githubUrl}" target="_blank" class="btn btn-secondary btn-sm" title="Ver código en GitHub"><i class="fa-brands fa-github"></i> Código</a>` : ''}
+          ${p.githubUrl && p.githubUrl !== '#' ? `<a href="${p.githubUrl}" target="_blank" class="btn btn-secondary btn-sm" title="Ver código en GitHub"><i class="fa-brands fa-github"></i> Código</a>` : ''}
+          ${p.liveUrl && p.liveUrl !== '#' ? `<a href="${p.liveUrl}" target="_blank" class="btn btn-secondary btn-sm" title="Ver API o Demo en Vivo" style="color: var(--cyan-glow); border-color: rgba(56,189,248,0.3);"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>` : ''}
         </div>
         <button class="btn-details" onclick="openProjectModal('${p.id}')">
           Ver Arquitectura <i class="fa-solid fa-arrow-right"></i>
@@ -490,6 +544,16 @@ window.openProjectModal = function(projectId) {
         ${p.techStack.map(t => `<span class="tech-tag" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">${t}</span>`).join("")}
       </div>
     `;
+  }
+
+  const liveBtn = document.getElementById("modalLiveBtn");
+  if (liveBtn) {
+    if (p.liveUrl && p.liveUrl !== "#") {
+      liveBtn.href = p.liveUrl;
+      liveBtn.style.display = "inline-flex";
+    } else {
+      liveBtn.style.display = "none";
+    }
   }
 
   if (githubBtn) {
